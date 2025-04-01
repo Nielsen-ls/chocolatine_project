@@ -72,11 +72,6 @@ jobs:
         with:
           fetch-depth: 1
 
-      - name: Verify Repository Integrity
-        run: |
-          git fsck --full
-          git gc --prune=now
-
       - name: Mirror to Target Repository
         uses: pixta-dev/repository-mirroring-action@v1
         with:
