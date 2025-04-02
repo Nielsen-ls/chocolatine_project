@@ -67,6 +67,12 @@ jobs:
     needs: run_tests
     if: github.event_name == 'push'
     steps:
+      - name: Check Mirror URL
+        run: |
+          if [ -z "${{secrets.MIRROR_URL}}" ]; then
+            echo "Mirror URL is empty. Skipping mirroring step."
+            exit 0
+          fi
       - name: Checkout Repository
         uses: actions/checkout@v4
         with:
