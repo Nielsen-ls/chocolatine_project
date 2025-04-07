@@ -74,7 +74,6 @@ int mini_printf(const char *format, ...)
 
     va_start(list, format);
     for (int i = 0; format[i] != '\0'; i++) {
-        int caca = 0;
         if (format[i] == '%') {
             find_pourcent(format[i + 1], list);
             i += 1;
